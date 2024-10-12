@@ -1,0 +1,240 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            height: 150px;
+            position: relative;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            display: none;
+        }
+
+        .toggle-switch .slider {
+            width: 60px;
+            height: 30px;
+            background-color: #9575cd; /* Tailwind purple-400 */
+            border-radius: 30px;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+
+        .toggle-switch .slider:before {
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+
+        .toggle-switch input:checked + .slider {
+            background-color: #ffcc80; /* Tailwind orange-400 */
+        }
+
+        .toggle-switch input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        .toggle-switch .label {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .seller-functions {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <div class="bg-white p-4 flex justify-between items-center shadow-md">
+        <img alt="Logo" class="h-8"  src="petfido_transparent.png" height="100" width="150"/>
+        <div class="relative">
+            <input class="border rounded-full py-2 px-4 w-64" id="search-bar" placeholder="Search category..." type="text"/>
+            <i class="fas fa-search absolute right-3 top-3 text-gray-500"></i>
+        </div>
+    </div>
+    
+    <!-- Categories -->
+    <div class="flex justify-center p-4 bg-white shadow-md">
+        <button class="bg-purple-200 text-purple-700 rounded-full px-4 py-2 mx-2">dog</button>
+        <button class="bg-purple-200 text-purple-700 rounded-full px-4 py-2 mx-2">cat</button>
+        <button class="bg-purple-200 text-purple-700 rounded-full px-4 py-2 mx-2">bird</button>
+        <button class="bg-purple-200 text-purple-700 rounded-full px-4 py-2 mx-2">cattle</button>
+        <button class="bg-purple-200 text-purple-700 rounded-full px-4 py-2 mx-2">other</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex justify-center p-4 bg-white shadow-md">
+        <div class="toggle-switch">
+            <input type="checkbox" id="buy-sell-toggle" checked>
+            <div class="slider"></div>
+            <span id="toggle-label" class="label">Sell</span>
+        </div>
+    </div>
+
+    <!-- Pet Input Form -->
+    <div class="bg-white p-4 shadow-md m-4 rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">Add Pet Details</h2>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-image">Pet Image</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-image" type="file" accept="image/*">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-name">Pet Name</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-name" type="text" placeholder="Enter pet name">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-price">Price</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-price" type="number" placeholder="Enter price">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-breed">Breed</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-breed" type="text" placeholder="Enter breed">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-age">Age</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-age" type="number" placeholder="Enter age">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-gender">Gender</label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pet-location">Location</label>
+                <div class="flex items-center">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pet-location" type="text" placeholder="Enter location manually">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 focus:outline-none focus:shadow-outline" type="button" onclick="getLocation()">Auto</button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Add Pet
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="fixed bottom-0 left-0 right-0 bg-purple-200 p-4 flex justify-around text-purple-700">
+        <div class="flex flex-col items-center cursor-pointer" onclick="alert('Home button clicked')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="flex flex-col items-center cursor-pointer" onclick="alert('Chats button clicked')">
+            <i class="fas fa-comments"></i>
+            <span>Chats</span>
+        </div>
+        <div class="flex flex-col items-center cursor-pointer" onclick="alert('Favorites button clicked')">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
+        </div>
+        <div class="flex flex-col items-center cursor-pointer" onclick="alert('My Account button clicked')">
+            <i class="fas fa-user"></i>
+            <span>My Account</span>
+        </div>
+    </div>
+    <script>
+        document.getElementById('search-bar').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                alert('Search for: ' + e.target.value);
+            }
+        });
+
+        function toggleFavorite(element) {
+            const heartIcon = element.querySelector('.fa-heart');
+            const favText = element.querySelector('span');
+
+            if (element.classList.contains('bg-purple-500')) {
+                element.classList.remove('bg-purple-500');
+                element.classList.add('bg-gray-500');
+                heartIcon.classList.remove('text-white');
+                heartIcon.classList.add('text-gray-200');
+                favText.textContent = 'Unfav';
+            } else {
+                element.classList.remove('bg-gray-500');
+                element.classList.add('bg-purple-500');
+                heartIcon.classList.remove('text-gray-200');
+                heartIcon.classList.add('text-white');
+                favText.textContent = 'Add to fav';
+            }
+        }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Initialize the slider
+        showSlide(currentSlide);
+
+        // Automatic slide change
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+        // Toggle switch functionality
+        const toggleSwitch = document.getElementById('buy-sell-toggle');
+        const toggleLabel = document.getElementById('toggle-label');
+        const sellerFunctions = document.querySelector('.seller-functions');
+
+        toggleSwitch.addEventListener('change', function () {
+            if (toggleSwitch.checked) {
+                toggleLabel.textContent = 'Sell';
+                toggleLabel.style.color = '#ffcc80'; // Tailwind orange-400
+                sellerFunctions.style.display = 'block';
+            } else {
+                toggleLabel.textContent = 'Buy';
+                toggleLabel.style.color = '#9575cd'; // Tailwind purple-400
+                sellerFunctions.style.display = 'none';
+            }
+        });
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('pet-location').value = "Latitude: " + position.coords.latitude + 
+            ", Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>
