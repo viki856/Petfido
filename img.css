@@ -1,0 +1,183 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-clip: initial;
+    padding-top: 50px;
+}
+.bg img{
+    height: 120vh;
+    width: 500%;
+}
+.img1{
+    height: 900px;
+    padding: 15px;
+}
+img{
+    width: 100%;
+    
+}
+h2{
+    margin: 5%;
+    margin-top: 20%;
+    color: gold;
+    font-family: love2;
+    letter-spacing: 2px;
+}
+.intro{
+    margin: 8%;
+    padding: 3%;
+    background: #222;
+}
+    
+.intro h2{
+    margin-top: 5%;
+    text-align: center;
+}
+.content1{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    text-align: center;
+    opacity: 0;
+}
+.content1:hover{
+    opacity: 1;
+    transition: .5s;
+}
+.img2{
+    height: 900px;
+    padding: 15px;
+}
+.content2{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content2:hover{
+    opacity: 1;
+    transition: .5s;}
+.img3{
+    height: 1214px;
+    width: 60%;
+    margin-left: 20%;
+    padding: 15px;
+}
+.content3{
+    position: absolute;
+    height: 1214px;
+    width: 28%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content3:hover{
+    opacity: 1;
+    transition: .5s;}
+.img4{
+    height: 900px;
+    padding: 15px;
+}
+.content4{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content4:hover{
+    opacity: 1;
+    transition: .5s;}
+.img5{
+    height: 900px;
+    padding: 15px;
+}
+.content5{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content5:hover{
+    opacity: 1;
+    transition: .5s;}
+.img6{
+    height: 900px;
+    padding: 15px;
+}
+.content6{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content6:hover{
+    opacity: 1;
+    transition: .5s;}
+.img7{
+    height: 1214px;
+    width: 60%;
+    margin-left: 20%;
+    padding: 15px;
+    
+}
+.content7{
+    position: absolute;
+    height: 1214px;
+    width: 28%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content7:hover{
+    opacity: 1;
+    transition: .5s;}
+.img8{
+    height: 900px;
+    padding: 15px;
+}
+.content8{
+    position: absolute;
+    height: 879px;
+    width: 45%;
+    background: linear-gradient(rgba(0, 0, 0, 0.724), rgba(85, 102, 136, 0));
+    opacity: 0;
+}
+.content8:hover{
+    opacity: 1;
+    transition: .5s;}
+@media(max-width:768px){
+    .content{
+        background: none;
+        height: auto;
+        overflow: hidden;
+    }
+    .img{
+        height: auto;
+    }
+    h2{
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+    .intro{
+        margin: 2.5%;
+    }
+}
+ @font-face{
+        font-family: love1;
+        src: url(fonts/love1.ttf);
+    }
+    @font-face{
+        font-family: love2;
+        src: url(fonts/love2.ttf);
+    }
+    @font-face{
+        font-family: love3;
+        src: url(fonts/love3.ttf);
+    }
